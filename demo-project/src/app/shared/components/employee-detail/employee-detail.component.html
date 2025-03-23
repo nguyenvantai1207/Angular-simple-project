@@ -1,0 +1,12 @@
+<div *ngIf="employee as emp; else noEmployee">
+  <p>Employee Detail: {{ emp.name }}</p>
+  <p>ID: {{ emp.id }}</p>
+  <p>Day of Birth: {{ emp.dob | date : "dd-MM-yyyy" }}</p>
+  <p>Email: {{ emp.email }}</p>
+  <p>Position: {{ emp.position }}</p>
+  <p>Department: {{ emp.department }}</p>
+</div>
+
+<ng-template #noEmployee>
+  <p>No employee found.</p>
+</ng-template>

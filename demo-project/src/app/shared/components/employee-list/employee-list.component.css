@@ -1,0 +1,16 @@
+.navbar-brand {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.btn {
+  width: 60px;
+}
+
+.clickable-name {
+  cursor: pointer;
+  color: #007bff;
+}
+.clickable-name:hover {
+  text-decoration: underline;
+}

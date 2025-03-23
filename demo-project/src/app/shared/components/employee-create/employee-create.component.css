@@ -1,0 +1,7 @@
+.clickable-name {
+  cursor: pointer;
+  color: #007bff; /* Bootstrap primary blue */
+}
+.clickable-name:hover {
+  text-decoration: underline;
+}

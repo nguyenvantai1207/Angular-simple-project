@@ -1,0 +1,80 @@
+<div
+  class="form-container p-3 mt-5 bg-info-subtle"
+  style="max-width: 50%; margin: 0 auto; --bs-bg-opacity: 0.5"
+>
+  <form
+    [formGroup]="updateEmployeeForm"
+    *ngIf="employee as emp; else noEmployee"
+  >
+    <h2 class="text-center m-4">Welcome: {{ emp.name }}!</h2>
+
+    <!-- Full Name -->
+    <div class="mb-3">
+      <label for="fullName" class="form-label">Name: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="fullName"
+        formControlName="name"
+      />
+    </div>
+    <!-- email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email: </label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="emailHelp"
+        formControlName="email"
+      />
+      <div id="emailHelp" class="form-text">
+        The email format must be include "example.com"
+      </div>
+    </div>
+    <!-- birth day -->
+    <div class="mb-3">
+      <label for="birthday" class="form-label">Birth Day: </label>
+      <input
+        type="date"
+        id="birthday"
+        class="form-control"
+        formControlName="dob"
+      />
+    </div>
+    <!-- Position -->
+    <div class="mb-3">
+      <label for="position" class="form-label">Position: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="position"
+        formControlName="position"
+      />
+    </div>
+    <!-- Department -->
+    <div class="mb-3">
+      <label for="inputDepartment" class="form-label">Department: </label>
+      <select
+        id="inputDepartment"
+        class="form-select mt-2"
+        formControlName="department"
+      >
+        <option value="">Open this select menu</option>
+        <option value="Infrastructure">Infrastructure</option>
+        <option value="Configuration">Configuration</option>
+        <option value="Integration">Integration</option>
+        <option value="Security">Security</option>
+        <option value="Research">Research</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-success m-1" (click)="onUpdate()">Update</button>
+      <button class="btn btn-danger m-1" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<ng-template #noEmployee>
+  <p>No employee found.</p>
+</ng-template>

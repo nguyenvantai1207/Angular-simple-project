@@ -1,0 +1,77 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        src="./assets/images/Logo.svg"
+        alt="Logo"
+        width="50"
+        height="34"
+        class="d-inline-block align-text-top"
+      />
+      Employee Management System
+    </a>
+  </div>
+</nav>
+
+<button
+  type="button"
+  class="btn btn-primary"
+  (click)="onCreate()"
+  style="width: 200px; height: 40px; margin: 10px 270px 0"
+>
+  Add New Employee
+</button>
+
+<section class="list-container">
+  <table class="table table-striped table-hover mx-auto" style="max-width: 70%">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Position</th>
+        <th scope="col">Department</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let employee of employeeList; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <!-- Name -->
+        <td class="col-2">
+          <span class="clickable-name" (click)="onView(employee.id)">
+            {{ employee.name }}
+          </span>
+        </td>
+        <!-- Email -->
+        <td class="col-3">{{ employee.email | emailPipe }}</td>
+        <!-- Position -->
+        <td class="col-3">
+          {{ employee.position }}
+        </td>
+        <!-- Department -->
+        <td class="col-2">
+          {{ employee.department }}
+        </td>
+        <td>
+          <section class="btn-group gap-2">
+            <button
+              type="button"
+              class="btn btn-outline-warning btn-sm"
+              (click)="onEdit(employee.id)"
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              (click)="employee.id ? onDelete(employee.id) : null"
+            >
+              Delete
+            </button>
+          </section>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
